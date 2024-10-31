@@ -12,10 +12,10 @@ public class Reimbursement {
     private int reimbId;
 
     @Column(nullable = false)
-    private String description;
+    private int amount;
 
     @Column(nullable = false)
-    private int amount;
+    private String description;
 
     @Column(nullable = false)
     private String status;
@@ -28,7 +28,7 @@ public class Reimbursement {
 
     }
 
-    public Reimbursement(int reimbId, String description, int amount, String status, User user) {
+    public Reimbursement(int reimbId, int amount, String description, String status, User user) {
         this.reimbId = reimbId;
         this.description = description;
         this.amount = amount;

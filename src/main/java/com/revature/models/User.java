@@ -25,7 +25,7 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String role = "user";
+    private String role = "employee";
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Reimbursement> reimbursements;
