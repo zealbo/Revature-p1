@@ -25,4 +25,17 @@ public class UserService {
         return userDAO.save(newUser);
     }
 
+    public List<User> getAllUsers(){
+        return userDAO.findAll();
+    }
+
+    //custom DAO method
+    public User getUserByUsername(String username){
+        if(username == null || username.isBlank()){
+            throw new IllegalArgumentException("Please search for a valid username");
+        }
+
+        return userDAO.findByUsername(username);
+    }
+
 }
