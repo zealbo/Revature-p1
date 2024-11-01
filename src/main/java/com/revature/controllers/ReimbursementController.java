@@ -36,9 +36,9 @@ public class ReimbursementController {
         return ResponseEntity.ok(reimbursementService.findByUserUserId(userId));
     }
 
-    @GetMapping("/pending/{userId}")
-    public ResponseEntity<List<Reimbursement>> findByUserUserIdAndStatusContainingPending(@PathVariable int userId){
-        return ResponseEntity.ok(reimbursementService.findByUserUserIdAndStatusContainingPending(userId));
+    @GetMapping("/{userId}/{status}")
+    public ResponseEntity<List<Reimbursement>> findByUserUserIdAndStatus(@PathVariable int userId, @PathVariable String status){
+        return ResponseEntity.ok(reimbursementService.findByUserUserIdAndStatus(userId, status));
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

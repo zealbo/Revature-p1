@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface ReimbursementDAO extends JpaRepository<Reimbursement, Integer>{
 
     List<Reimbursement> findByUserUserId(int userId);
-    List<Reimbursement> findByUserUserIdAndStatusContainingPending(int userId);
+    List<Reimbursement> findByUserUserIdAndStatus(int userId, String status);
 
 }
