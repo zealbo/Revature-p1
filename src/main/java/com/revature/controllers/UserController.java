@@ -1,4 +1,5 @@
 package com.revature.controllers;
+import com.revature.models.DTOs.OutgoingUserDTO;
 import com.revature.models.Reimbursement;
 import com.revature.models.User;
 import com.revature.services.UserService;
@@ -26,8 +27,8 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers(){
-        List<User> allUsers = userService.getAllUsers();
+    public ResponseEntity<List<OutgoingUserDTO>> getAllUsers(){
+        List<OutgoingUserDTO> allUsers = userService.getAllUsers();
         return ResponseEntity.ok(allUsers);
     }
 
