@@ -39,6 +39,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserByUsername(username));
     }
 
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<User> deleteUser(@PathVariable int userId){
+        return ResponseEntity.ok(userService.deleteUser(userId));
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> handleIllegalArgument(IllegalArgumentException e){
         return ResponseEntity.status(400).body(e.getMessage());

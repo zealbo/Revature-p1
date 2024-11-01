@@ -18,8 +18,6 @@ public class UserService {
     }
 
     public User register(User newUser){
-        //TODO: check that the username is unique
-
         if(newUser.getUsername() == null || newUser.getUsername().isBlank()){
             throw new IllegalArgumentException("Username cannot be empty!");
         }
@@ -40,6 +38,10 @@ public class UserService {
         return userDAO.findByUsername(username);
     }
 
-
+    public User deleteUser(int userId){
+        User u = userDAO.findById(userId).orElseThrow(() -> new IllegalArgumentException("No user found with id: " + userId));
+        userDAO.deleteById(userId);
+        return u;
+    }
 
 }
