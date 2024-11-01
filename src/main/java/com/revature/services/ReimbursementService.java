@@ -36,4 +36,12 @@ public class ReimbursementService {
     public List<Reimbursement> getAllReimbursements(){
         return rDAO.findAll();
     }
+
+    public List<Reimbursement> findByUserUserId(int userId){
+        return rDAO.findByUserUserId(userId);
+    }
+
+    public List<Reimbursement> findByUserUserIdAndStatusContainingPending(int userId){
+        return rDAO.findByUserUserIdAndStatusContainingPending(userId);
+    }
 }

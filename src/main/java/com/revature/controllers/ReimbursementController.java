@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/reimbursements")
@@ -28,6 +29,16 @@ public class ReimbursementController {
     @GetMapping
     public ResponseEntity<List<Reimbursement>> getAllReimbursements(){
         return ResponseEntity.ok(reimbursementService.getAllReimbursements());
+    }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<Reimbursement>> findByUserUserId(@PathVariable int userId){
+        return ResponseEntity.ok(reimbursementService.findByUserUserId(userId));
+    }
+
+    @GetMapping("/pending/{userId}")
+    public ResponseEntity<List<Reimbursement>> findByUserUserIdAndStatusContainingPending(@PathVariable int userId){
+        return ResponseEntity.ok(reimbursementService.findByUserUserIdAndStatusContainingPending(userId));
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
