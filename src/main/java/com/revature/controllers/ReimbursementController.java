@@ -41,6 +41,11 @@ public class ReimbursementController {
         return ResponseEntity.ok(reimbursementService.findByUserUserIdAndStatus(userId, status));
     }
 
+    @GetMapping("/{status}/status")
+    public ResponseEntity<List<Reimbursement>> findByStatus(@PathVariable String status){
+        return ResponseEntity.ok(reimbursementService.findByStatus(status));
+    }
+
     @PatchMapping("/{userId}/description")
     public ResponseEntity<Reimbursement> updateReimbursementDescription(@PathVariable int userId, @RequestBody String newDescription){
         return ResponseEntity.status(202).body(reimbursementService.updateReimbursementDescription(userId, newDescription));

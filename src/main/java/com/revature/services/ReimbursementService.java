@@ -45,6 +45,10 @@ public class ReimbursementService {
         return rDAO.findByUserUserIdAndStatus(userId, status);
     }
 
+    public List<Reimbursement> findByStatus(String status){
+        return rDAO.findByStatus(status);
+    }
+
     public Reimbursement updateReimbursementDescription(int userId, String newDescription){
         Reimbursement r = rDAO.findById(userId).orElseThrow(() -> new IllegalArgumentException("No user found"));
         r.setDescription(newDescription);
