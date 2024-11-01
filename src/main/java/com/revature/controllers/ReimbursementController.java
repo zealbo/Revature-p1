@@ -51,6 +51,11 @@ public class ReimbursementController {
         return ResponseEntity.status(202).body(reimbursementService.updateReimbursementDescription(userId, newDescription));
     }
 
+    @PatchMapping("/{userId}/status")
+    public ResponseEntity<Reimbursement> updateReimbursementStatus(@PathVariable int userId, @RequestBody String newStatus){
+        return ResponseEntity.status(202).body(reimbursementService.updateReimbursementStatus(userId, newStatus));
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> handleIllegalArgument(IllegalArgumentException e){
         return ResponseEntity.status(400).body(e.getMessage());

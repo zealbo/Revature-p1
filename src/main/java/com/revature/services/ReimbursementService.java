@@ -55,4 +55,11 @@ public class ReimbursementService {
         rDAO.save(r);
         return r;
     }
+
+    public Reimbursement updateReimbursementStatus(int userId, String newStatus){
+        Reimbursement r = rDAO.findById(userId).orElseThrow(() -> new IllegalArgumentException("No user found"));
+        r.setStatus(newStatus);
+        rDAO.save(r);
+        return r;
+    }
 }
