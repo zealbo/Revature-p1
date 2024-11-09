@@ -12,7 +12,7 @@ public class OutgoingUserDTO {
     }
 
     public OutgoingUserDTO(int userId, String username, String role) {
-        UserId = userId;
+        this.UserId = userId;
         this.username = username;
         this.role = role;
     }
