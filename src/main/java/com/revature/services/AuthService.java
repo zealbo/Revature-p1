@@ -38,6 +38,8 @@ public class AuthService {
 
         //Store the User info in the session
         AuthController.session.setAttribute("userId", u.getUserId());
+        AuthController.session.setAttribute("firstName", u.getFirstName());
+        AuthController.session.setAttribute("lastName", u.getLastName());
         AuthController.session.setAttribute("username", u.getUsername());
         AuthController.session.setAttribute("role", u.getRole());
 
@@ -51,7 +53,7 @@ public class AuthService {
                 ex: use the stored userId in "findBy" methods so we don't need to include it in the URL */
 
         //Process the User into an OutgoingUserDTO and return it!
-        return new OutgoingUserDTO(u.getUserId(), u.getUsername(), u.getRole());
+        return new OutgoingUserDTO(u.getUserId(), u.getFirstName(), u.getLastName(), u.getUsername(), u.getRole());
 
     }
 

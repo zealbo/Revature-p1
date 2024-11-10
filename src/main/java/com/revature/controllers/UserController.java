@@ -1,4 +1,5 @@
 package com.revature.controllers;
+import com.revature.aspects.AdminOnly;
 import com.revature.models.DTOs.OutgoingUserDTO;
 import com.revature.models.Reimbursement;
 import com.revature.models.User;
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     private UserService userService;
@@ -26,12 +28,14 @@ public class UserController {
         return ResponseEntity.ok(u);
     }
 
+    @AdminOnly
     @GetMapping
     public ResponseEntity<List<OutgoingUserDTO>> getAllUsers(){
         List<OutgoingUserDTO> allUsers = userService.getAllUsers();
         return ResponseEntity.ok(allUsers);
     }
 
+    @AdminOnly
     @GetMapping("/{username}")
     public ResponseEntity<?> getUserByUsername(@PathVariable String username){
         if(userService.getUserByUsername(username) == null){
@@ -40,6 +44,7 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserByUsername(username));
     }
 
+    @AdminOnly
     @DeleteMapping("/{userId}")
     public ResponseEntity<User> deleteUser(@PathVariable int userId){
         return ResponseEntity.ok(userService.deleteUser(userId));

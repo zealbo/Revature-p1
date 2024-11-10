@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin //requests from any location can react this no problem. not very secure
+@CrossOrigin(origins = "http://localhost:3000") //requests from any location can react this no problem. not very secure
 public class AuthController {
 
     //autowire the service

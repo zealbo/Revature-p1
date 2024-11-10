@@ -36,7 +36,7 @@ public class UserService {
         List<User> users = userDAO.findAll();
         List<OutgoingUserDTO> outUsers = new ArrayList<>();
         for(User user : users){
-            outUsers.add(new OutgoingUserDTO(user.getUserId(), user.getUsername(), user.getRole()));
+            outUsers.add(new OutgoingUserDTO(user.getUserId(), user.getFirstName(), user.getLastName(), user.getUsername(), user.getRole()));
         }
         return outUsers;
     }
