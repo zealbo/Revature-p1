@@ -8,6 +8,7 @@ import { Manager } from './Components/User/Manager';
 import { Register } from './Components/LoginRegister/Register';
 import { ReimbTable } from './Components/Reimbursement/ReimbTable';
 import { ReimbursementContainer } from './Components/Reimbursement/ReimbContainer';
+import { PendingReimbursementContainer } from './Components/Reimbursement/PendingReimbContainer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/managers" element={<Manager/>}/>
           <Route path="/AllReimbursements" element={<ReimbursementContainer/>}/>
+          <Route path="/PendingReimbursements" element={<PendingReimbursementContainer/>}/>
         </Routes>
       </BrowserRouter>
     </div>

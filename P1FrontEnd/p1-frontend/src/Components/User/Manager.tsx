@@ -11,6 +11,7 @@ export const Manager:React.FC = () => {
             <h3>Manager Options:</h3>
 
             <Button onClick={() => navigate("/AllReimbursements")}>See All Reimbursements</Button>
+            <Button onClick={() => navigate("/PendingReimbursements")}>See Pending Reimbursements</Button>
         </>
     )
 
