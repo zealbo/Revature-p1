@@ -13,6 +13,7 @@ export const Manager:React.FC = () => {
             <Button onClick={() => navigate("/AllReimbursements")}>See All Reimbursements</Button>
             <Button onClick={() => navigate("/PendingReimbursements")}>See Pending Reimbursements</Button>
             <Button onClick={() => navigate("/AllEmployees")}>See All Employees</Button>
+            <Button onClick={() => navigate("/NewReimbursement")}>Create New Reimbursement</Button>
         </>
     )
 

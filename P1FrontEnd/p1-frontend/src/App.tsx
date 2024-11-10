@@ -10,6 +10,7 @@ import { ReimbTable } from './Components/Reimbursement/ReimbTable';
 import { ReimbursementContainer } from './Components/Reimbursement/ReimbContainer';
 import { PendingReimbursementContainer } from './Components/Reimbursement/PendingReimbContainer';
 import { EmployeeContainer } from './Components/Employee/EmpContainer';
+import { NewReimbursement } from './Components/Reimbursement/NewReimb';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/AllReimbursements" element={<ReimbursementContainer/>}/>
           <Route path="/PendingReimbursements" element={<PendingReimbursementContainer/>}/>
           <Route path="/AllEmployees" element={<EmployeeContainer/>}/>
+          <Route path="/NewReimbursement" element={<NewReimbursement/>}/>
         </Routes>
       </BrowserRouter>
     </div>
