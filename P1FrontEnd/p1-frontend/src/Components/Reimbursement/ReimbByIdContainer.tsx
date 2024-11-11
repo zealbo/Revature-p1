@@ -10,7 +10,7 @@ export const ReimbursementByIdContainer:React.FC = () => {
 
     useEffect(()=>{
         getAllReimbursements()
-    }, []) //this useEffect triggers on component load
+    }, [reimbursements]) //this useEffect triggers on component load
 
 
     //The function that gets all pets with an axios GET request

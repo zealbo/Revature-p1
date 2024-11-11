@@ -10,7 +10,7 @@ export const EmployeeContainer:React.FC = () => {
 
     useEffect(()=>{
         getAllUsers()
-    }, []) //this useEffect triggers on component load
+    }, [users]) //this useEffect triggers on component load
 
 
     //The function that gets all pets with an axios GET request

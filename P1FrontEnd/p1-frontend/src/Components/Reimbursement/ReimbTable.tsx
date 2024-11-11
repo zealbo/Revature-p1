@@ -38,17 +38,14 @@ export const ReimbTable:React.FC<{reimbursements:any[]}> = ({reimbursements}) =>
                                 >
                                     <Dropdown.Item eventKey="Approved" onClick={async () => {
                                         await updateStatus(reimbursement.reimbId, "APPROVED");
-                                        window.location.reload(); 
                                     }}>Approved</Dropdown.Item>
 
                                     <Dropdown.Item eventKey="Denied" onClick={async () => {
                                         await updateStatus(reimbursement.reimbId, "DENIED");
-                                        window.location.reload(); 
                                     }}>Denied</Dropdown.Item>
 
                                     <Dropdown.Item eventKey="Pending" onClick={async () => {
                                         await updateStatus(reimbursement.reimbId, "PENDING");
-                                        window.location.reload(); 
                                     }}>Pending</Dropdown.Item>
                                 </DropdownButton>
                             </td>

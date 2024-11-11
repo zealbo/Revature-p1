@@ -37,7 +37,6 @@ export const EmpTable:React.FC<{users:any[]}> = ({users}) => {
                                 >
                                     <Dropdown.Item onClick={async () => {
                                         await deleteUser(user.userId);
-                                        window.location.reload(); 
                                     }}>Terminate</Dropdown.Item>
                                 </DropdownButton>
                             </td>
