@@ -1,7 +1,10 @@
 import axios from "axios";
 import { Button, Container, Dropdown, DropdownButton, Table } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 
 export const ReimbByIdTable:React.FC<{reimbursements:any[]}> = ({reimbursements}) => {
+
+    const navigate = useNavigate();
 
     return(
         <Container>
@@ -27,6 +30,9 @@ export const ReimbByIdTable:React.FC<{reimbursements:any[]}> = ({reimbursements}
                     ))}
                 </tbody>
             </Table>
+            <div>
+                <Button onClick={()=>navigate(-1)}>Back</Button>
+            </div>
         </Container>
     )
 

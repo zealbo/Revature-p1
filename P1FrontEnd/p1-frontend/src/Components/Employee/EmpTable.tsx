@@ -1,11 +1,14 @@
 import axios from "axios";
 import { Button, Container, Dropdown, DropdownButton, Table } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 
 export const EmpTable:React.FC<{users:any[]}> = ({users}) => {
 
     const deleteUser = async (id: number) => {
         const response = await axios.delete("http://localhost:7878/users/" + id);    
     };
+
+    const navigate = useNavigate();
 
     return(
         <Container>
@@ -42,6 +45,9 @@ export const EmpTable:React.FC<{users:any[]}> = ({users}) => {
                     ))}
                 </tbody>
             </Table>
+            <div>
+                <Button onClick={()=>navigate(-1)}>Back</Button>
+            </div>
         </Container>
     )
 

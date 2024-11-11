@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Button, Container, Dropdown, DropdownButton, Table } from "react-bootstrap"
 import { store } from "../../globalData/store";
+import { useNavigate } from "react-router-dom"
 
 export const PendingReimbByIdTable:React.FC<{reimbursements:any[]}> = ({reimbursements}) => {
 
@@ -10,6 +11,8 @@ export const PendingReimbByIdTable:React.FC<{reimbursements:any[]}> = ({reimburs
     const updateDescription = async (id: number, newDescription: string) => {
         const response = await axios.patch(`http://localhost:7878/reimbursements/${id}/description`, newDescription, { headers: { 'Content-Type': 'text/plain' }});    
     };
+
+    const navigate = useNavigate();
 
     return(
         <Container>
@@ -42,13 +45,16 @@ export const PendingReimbByIdTable:React.FC<{reimbursements:any[]}> = ({reimburs
 
                                     <br /><br />
 
-                                    <button type="submit">Submit</button>
+                                    <Button type="submit">Submit</Button>
                                 </form>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </Table>
+            <div>
+                <Button onClick={()=>navigate(-1)}>Back</Button>
+            </div>
         </Container>
     )
 

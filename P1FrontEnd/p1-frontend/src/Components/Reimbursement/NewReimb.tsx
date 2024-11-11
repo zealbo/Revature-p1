@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Button, Container, Dropdown, DropdownButton, Table } from "react-bootstrap"
 import { store } from "../../globalData/store"
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 
 export const NewReimbursement:React.FC = () => {
 
@@ -36,6 +37,8 @@ export const NewReimbursement:React.FC = () => {
         setDescription(''); // Clear the description input
     };
 
+    const navigate = useNavigate();
+
     return(
         <div>
             <h3>Create New Reimbursement</h3>
@@ -50,9 +53,11 @@ export const NewReimbursement:React.FC = () => {
 
                 <br /><br />
 
-                <button type="submit">Submit</button>
+                <Button type="submit">Submit</Button>
             </form>
-    </div>
+            <br />
+            <Button onClick={()=>navigate(-1)}>Back</Button>
+        </div>
     )
 
 }
