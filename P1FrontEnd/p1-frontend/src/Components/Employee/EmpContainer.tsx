@@ -10,30 +10,28 @@ export const EmployeeContainer:React.FC = () => {
 
     useEffect(()=>{
         getAllUsers()
-    }, [users]) //this useEffect triggers on component load
+    }, [users]) //rerenders component when state changes
 
-
-    //The function that gets all pets with an axios GET request
+    //gets all users with an axios request
     const getAllUsers = async () => {
 
         //axios GET request 
         const response = await axios.get("http://localhost:7878/users")
         //TODO: then(), catch() etc
 
-        //populate the pets state object
-        setusers(response.data) //data holds the data send in the response body
+        //populate the users state object
+        setusers(response.data) //data holds the data sent in the response body
 
         console.log(response.data)
     }
 
 
     return(
-        /* TODO: navbar thing? for navigation options etc */
         <Container>
 
             <h3>All users:</h3>
 
-            {/* Sending the entire pets array to get rendered in the PetTable Component */}
+            {/* Sending the entire users array to get rendered in the EmpTable Component */}
             <EmpTable users={users}></EmpTable>
 
         </Container>

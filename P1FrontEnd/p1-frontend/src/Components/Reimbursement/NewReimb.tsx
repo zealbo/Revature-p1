@@ -21,7 +21,7 @@ export const NewReimbursement:React.FC = () => {
     };
 
     const handleSubmit = async (event: React.FormEvent) => {
-        event.preventDefault(); // Prevent the default form submission (page refresh)
+        event.preventDefault(); 
     
         const data: FormData = {
           amount,
@@ -32,7 +32,6 @@ export const NewReimbursement:React.FC = () => {
     
         await createReimbursement(data);
         alert("Reimbursement Submitted!");
-          // Optionally reset the form or handle submission success here
         setAmount(0); // Clear the amount input
         setDescription(''); // Clear the description input
     };

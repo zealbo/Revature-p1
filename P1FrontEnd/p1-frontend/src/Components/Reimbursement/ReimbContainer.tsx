@@ -10,18 +10,14 @@ export const ReimbursementContainer:React.FC = () => {
 
     useEffect(()=>{
         getAllReimbursements()
-    }, [reimbursements]) //this useEffect triggers on component load
+    }, [reimbursements]) 
 
-
-    //The function that gets all pets with an axios GET request
     const getAllReimbursements = async () => {
 
-        //axios GET request 
         const response = await axios.get("http://localhost:7878/reimbursements")
         //TODO: then(), catch() etc
 
-        //populate the pets state object
-        setReimbursements(response.data) //data holds the data send in the response body
+        setReimbursements(response.data) 
 
         console.log(response.data)
     }
@@ -33,7 +29,6 @@ export const ReimbursementContainer:React.FC = () => {
 
             <h3>All Reimbursements:</h3>
 
-            {/* Sending the entire pets array to get rendered in the PetTable Component */}
             <ReimbTable reimbursements={reimbursements}></ReimbTable>
 
         </Container>

@@ -31,7 +31,6 @@ export const ReimbTable:React.FC<{reimbursements:any[]}> = ({reimbursements}) =>
                             <td>{reimbursement.status}</td>
                             <td>{reimbursement.user.userId}</td>
                             <td>
-                                {/* Dropdown Menu */}
                                 <DropdownButton
                                     id={`dropdown-${reimbursement.reimbId}`}
                                     title={`${reimbursement.status}`}
