@@ -38,7 +38,7 @@ public class AuthAspect {
     public void checkAdmin() throws IllegalArgumentException{
 
         //If the logged-in user does not have a role.Equals("admin"), throw an exception
-        if(!AuthController.session.getAttribute("role").equals("admin")){
+        if(!AuthController.session.getAttribute("role").equals("manager")){
             throw new IllegalArgumentException("You must be an admin to do this!");
         }
 
