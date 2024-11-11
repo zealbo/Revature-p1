@@ -6,13 +6,20 @@ import { useNavigate } from "react-router-dom"
 
 export const PendingReimbByIdTable:React.FC<{reimbursements:any[]}> = ({reimbursements}) => {
 
-    const [description, setDescription] = useState<string>('');
+    const [descriptions, setDescriptions] = useState<{[key: number]: string}>({});
 
     const updateDescription = async (id: number, newDescription: string) => {
         const response = await axios.patch(`http://localhost:7878/reimbursements/${id}/description`, newDescription, { headers: { 'Content-Type': 'text/plain' }});    
     };
-
+    const handleDescriptionChange = (id: number, newDescription: string) => {
+            setDescriptions((prevDescriptions) => ({
+                ...prevDescriptions,
+                [id]: newDescription,
+            }));
+        };
     const navigate = useNavigate();
+
+    
 
     return(
         <Container>
@@ -29,7 +36,7 @@ export const PendingReimbByIdTable:React.FC<{reimbursements:any[]}> = ({reimburs
                 </thead>
                 <tbody>
                     {reimbursements.map((reimbursement:any) => (
-                        <tr>
+                        <tr key={reimbursement.reimbId}>
                             <td>{reimbursement.reimbId}</td>
                             <td>{reimbursement.amount}</td>
                             <td>{reimbursement.description}</td>
@@ -38,10 +45,10 @@ export const PendingReimbByIdTable:React.FC<{reimbursements:any[]}> = ({reimburs
                             <td>
                                 <form onSubmit={(e) => {
                                     e.preventDefault();  // Prevent default form submission behavior
-                                    updateDescription(reimbursement.reimbId, description);  // Pass reimbId and description to updateDescription
+                                    updateDescription(reimbursement.reimbId, descriptions[reimbursement.reimbId] || '');  // Pass reimbId and description to updateDescription
                                 }}>
-                                    <label htmlFor="descriptionInput">Description:</label>
-                                    <input type="description" id="descriptionInput" name="description" value={description} onChange={(e) => setDescription(e.target.value)} required/>
+                                    <label htmlFor={`descriptionInput-${reimbursement.reimbId}`}>Description:</label>
+                                    <input type="description" id={`descriptionInput-${reimbursement.reimbId}`} name="description" value={descriptions[reimbursement.reimbId] || reimbursement.description} onChange={(e) => handleDescriptionChange(reimbursement.reimbId, e.target.value)} required/>
 
                                     <br /><br />
 
