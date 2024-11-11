@@ -14,6 +14,7 @@ public class AuthAspect {
     //An advice that checks if the user is logged in before they can call UserController methods
     //EXCEPT for the registerUser method - anyone should be able to register
     @Before("execution(* com.revature.controllers.UserController.*(..)) " +
+            "&& execution(* com.revature.controllers.ReimbursementController.*(..)) " +
             "&& !execution(* com.revature.controllers.UserController.registerUser(..))")
     public void checkLogin() throws IllegalArgumentException{
 
