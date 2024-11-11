@@ -41,7 +41,7 @@ export const Login:React.FC = () => {
                 if(store.loggedInUser.role === "admin"){
                     navigate("/managers")
                 } else {
-                    navigate("/reimbursements")
+                    navigate("/employees")
                 }
             }
         )
