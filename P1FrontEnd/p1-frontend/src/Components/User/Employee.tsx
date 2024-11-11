@@ -9,10 +9,11 @@ export const Employee:React.FC = () => {
     return(
         <>
             <h3>Employee Options:</h3>
-
+            <br/>
             <Button onClick={() => navigate("/NewReimbursement")}>Create New Reimbursement</Button><br/><br/>
             <Button onClick={() => navigate("/YourReimbursements")}>See Your Reimbursements</Button><br/><br/>
             <Button onClick={() => navigate("/YourPendingReimbursements")}>See Your Pending Reimbursements</Button><br/><br/>
+            <Button variant="danger" onClick={() => navigate("/")}>Logout</Button><br/><br/>
         </>
     )
 

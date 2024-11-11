@@ -9,13 +9,14 @@ export const Manager:React.FC = () => {
     return(
         <>
             <h3>Manager Options:</h3>
-
+            <br/>
             <Button onClick={() => navigate("/AllReimbursements")}>Resolve All Reimbursements</Button><br/><br/>
             <Button onClick={() => navigate("/PendingReimbursements")}>Resolve Pending Reimbursements</Button><br/><br/>
             <Button onClick={() => navigate("/AllEmployees")}>View/Terminate All Employees</Button><br/><br/>
             <Button onClick={() => navigate("/NewReimbursement")}>Create New Reimbursement</Button><br/><br/>
             <Button onClick={() => navigate("/YourReimbursements")}>See Your Reimbursements</Button><br/><br/>
             <Button onClick={() => navigate("/YourPendingReimbursements")}>See Your Pending Reimbursements</Button><br/><br/>
+            <Button variant="danger" onClick={() => navigate("/")}>Logout</Button><br/><br/>
         </>
     )
 
