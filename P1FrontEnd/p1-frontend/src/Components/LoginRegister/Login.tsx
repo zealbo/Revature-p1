@@ -38,7 +38,7 @@ export const Login:React.FC = () => {
 
                 alert("Welcome, " + store.loggedInUser.username)
 
-                if(store.loggedInUser.role === "admin"){
+                if(store.loggedInUser.role === "manager"){
                     navigate("/managers")
                 } else {
                     navigate("/employees")
